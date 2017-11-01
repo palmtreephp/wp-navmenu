@@ -1,0 +1,21 @@
+{
+  "name": "palmtree/wp-navmenu",
+  "description": "WordPress nav menu component for Palmtree PHP",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andy Palmer",
+      "email": "andy@andypalmer.me",
+      "homepage": "https://andypalmer.me"
+    }
+  ],
+  "require": {
+    "palmtree/collection": "^0.8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Palmtree\\WordPress\\NavMenu\\": "src"
+    }
+  }
+}
