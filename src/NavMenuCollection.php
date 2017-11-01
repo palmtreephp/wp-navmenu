@@ -2,6 +2,8 @@
 
 namespace Palmtree\WordPress\NavMenu;
 
+use Palmtree\Collection\Collection;
+
 class NavMenuCollection extends Collection
 {
     public function __construct()
