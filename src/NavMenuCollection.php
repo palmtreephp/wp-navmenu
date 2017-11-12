@@ -30,10 +30,10 @@ class NavMenuCollection extends Collection
     public function renderMenu($menu = '', $args = [])
     {
         $defaults = [
-            'menu'       => $menu,
-            'menu_class' => 'clearfix',
-            'container'  => null,
-            'walker'     => new BootstrapNavMenuWalker(),
+            'theme_location' => $menu,
+            'menu_class'     => 'clearfix',
+            'container'      => null,
+            'walker'         => new BootstrapNavMenuWalker(),
         ];
 
         $args = wp_parse_args($args, $defaults);
