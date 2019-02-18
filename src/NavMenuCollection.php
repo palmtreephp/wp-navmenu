@@ -2,9 +2,9 @@
 
 namespace Palmtree\WordPress\NavMenu;
 
-use Palmtree\Collection\Collection;
+use Palmtree\Collection\Map;
 
-class NavMenuCollection extends Collection
+class NavMenuCollection extends Map
 {
     public function __construct()
     {

@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "palmtree/collection": "^0.8.1"
+    "palmtree/collection": "~1.0"
   },
   "autoload": {
     "psr-4": {
