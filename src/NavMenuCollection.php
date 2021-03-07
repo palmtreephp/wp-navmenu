@@ -1,33 +1,39 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Palmtree\WordPress\NavMenu;
 
 use Palmtree\Collection\Map;
 
-class NavMenuCollection extends Map
+class NavMenuCollection
 {
+    /** @var Map */
+    private $map;
+
     public function __construct()
     {
+        $this->map = new Map('string');
+
         add_action('after_setup_theme', function () {
             $this->registerMenus();
         });
-
-        parent::__construct('string');
     }
 
-    /**
-     *
-     */
-    protected function registerMenus()
+    public function set(string $key, string $menu): self
     {
-        register_nav_menus($this->toArray());
+        $this->map->set($key, $menu);
+
+        return $this;
+    }
+
+    public function get(string $key): string
+    {
+        return $this->map->get($key);
     }
 
     /**
-     * @param string $menu
-     * @param array  $args
+     * @param array|string  $args
      */
-    public function renderMenu($menu = '', $args = [])
+    public function renderMenu(string $menu = '', $args = [])
     {
         $defaults = [
             'theme_location' => $menu,
@@ -39,5 +45,10 @@ class NavMenuCollection extends Map
         $args = wp_parse_args($args, $defaults);
 
         wp_nav_menu($args);
+    }
+
+    private function registerMenus(): void
+    {
+        register_nav_menus($this->map->toArray());
     }
 }

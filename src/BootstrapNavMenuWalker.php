@@ -1,18 +1,19 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Palmtree\WordPress\NavMenu;
 
 class BootstrapNavMenuWalker extends \Walker_Nav_Menu
 {
+    /** @var array<string> */
     private $activeClasses = ['current-menu-item', 'current-page-ancestor'];
 
     /**
      * Start the element output.
      *
-     * @param  string $output Passed by reference. Used to append additional content.
-     * @param  object $item   Menu item data object.
-     * @param  int    $depth  Depth of menu item. May be used for padding.
-     * @param  array  $args   Additional strings.
+     * @param string $output Passed by reference. Used to append additional content.
+     * @param object $item   Menu item data object.
+     * @param int    $depth  Depth of menu item. May be used for padding.
+     * @param array  $args   Additional strings.
      *
      * @return void
      */
@@ -71,7 +72,7 @@ class BootstrapNavMenuWalker extends \Walker_Nav_Menu
         );
     }
 
-    public function start_lvl(&$output, $depth = 0, $args = array())
+    public function start_lvl(&$output, $depth = 0, $args = [])
     {
         if (isset($args->item_spacing) && 'discard' === $args->item_spacing) {
             $t = '';
@@ -94,13 +95,13 @@ class BootstrapNavMenuWalker extends \Walker_Nav_Menu
          * @param \stdClass $args    An object of `wp_nav_menu()` arguments.
          * @param int       $depth   Depth of menu item. Used for padding.
          */
-        $class_names = join(' ', apply_filters('nav_menu_submenu_css_class', $classes, $args, $depth));
+        $class_names = implode(' ', apply_filters('nav_menu_submenu_css_class', $classes, $args, $depth));
         $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
 
         $output .= "{$n}{$indent}<ul $class_names>{$n}";
     }
 
-    private function isItemActive($item)
+    private function isItemActive($item): bool
     {
         $active = false;
 
@@ -121,7 +122,7 @@ class BootstrapNavMenuWalker extends \Walker_Nav_Menu
             if (!empty($queried_obj->has_archive)) {
                 $slug = $queried_obj->rewrite['slug'];
 
-                if (is_string($queried_obj->has_archive)) {
+                if (\is_string($queried_obj->has_archive)) {
                     $slug = $queried_obj->has_archive;
                 }
 

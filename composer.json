@@ -1,21 +1,25 @@
 {
-  "name": "palmtree/wp-navmenu",
-  "description": "WordPress nav menu component for Palmtree PHP",
-  "type": "library",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Andy Palmer",
-      "email": "andy@andypalmer.me",
-      "homepage": "https://andypalmer.me"
+    "name": "palmtree/wp-navmenu",
+    "description": "WordPress nav menu component for Palmtree PHP",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andy Palmer",
+            "email": "andy@andypalmer.me",
+            "homepage": "https://andypalmer.me"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "palmtree/collection": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Palmtree\\WordPress\\NavMenu\\": "src"
+        }
+    },
+    "require-dev": {
+        "palmtree/php-cs-fixer-config": "^1.0"
     }
-  ],
-  "require": {
-    "palmtree/collection": "~1.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Palmtree\\WordPress\\NavMenu\\": "src"
-    }
-  }
 }

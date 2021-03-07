@@ -6,7 +6,7 @@ Includes a custom walker to output WordPress menus as Bootstrap v4 nav bars and 
 of registering and outputting menus.
 
 ## Requirements
-* PHP >= 5.6
+* PHP >= 7.1
 
 ## Installation
 
@@ -23,7 +23,7 @@ $collection->set('header', 'Header Nav');
 ```
 
 ```php
-<nav class="navbar navbar-default"><?php echo $collection->renderMenu('header'); ?></nav>
+<nav class="navbar navbar-default"><?= $collection->renderMenu('header'); ?></nav>
 ```
 
 ## License
